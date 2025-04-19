@@ -1,0 +1,9 @@
+-- Simple SELECT
+SELECT * FROM Student;
+
+-- String manipulation
+SELECT name, UPPER(name) AS upper_name, LENGTH(name) AS name_length FROM Student;
+
+-- Aggregate functions
+SELECT COUNT(*) AS total_students FROM Student;
+SELECT AVG(credits) AS average_credits FROM Course;
