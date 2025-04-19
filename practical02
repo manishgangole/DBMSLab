@@ -1,0 +1,15 @@
+-- INSERT data
+INSERT INTO Student VALUES (1, 'Amit', 'amit@mail.com', TO_DATE('2002-04-15', 'YYYY-MM-DD'));
+INSERT INTO Student VALUES (2, 'Sneha', 'sneha@mail.com', TO_DATE('2001-09-30', 'YYYY-MM-DD'));
+
+INSERT INTO Course VALUES (101, 'DBMS', 4);
+INSERT INTO Course VALUES (102, 'Cyber Security', 3);
+
+INSERT INTO Enrollment VALUES (1001, 1, 101, SYSDATE, 'A');
+INSERT INTO Enrollment VALUES (1002, 2, 102, SYSDATE, 'B');
+
+-- UPDATE data
+UPDATE Student SET name = 'Amit Sharma' WHERE student_id = 1;
+
+-- DELETE data
+DELETE FROM Enrollment WHERE grade = 'B';
