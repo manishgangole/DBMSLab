@@ -1,0 +1,8 @@
+-- TCL: Transaction Control
+SAVEPOINT sp1;
+UPDATE Course SET credits = 5 WHERE course_id = 101;
+ROLLBACK TO sp1;
+
+-- DCL: Grant and Revoke
+GRANT SELECT, INSERT ON Student TO PUBLIC;
+REVOKE INSERT ON Student FROM PUBLIC;
