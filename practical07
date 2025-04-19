@@ -1,0 +1,17 @@
+-- Procedure: Print student details
+CREATE OR REPLACE PROCEDURE show_student_details(p_id IN NUMBER) IS
+BEGIN
+    FOR stu IN (SELECT * FROM Student WHERE student_id = p_id) LOOP
+        DBMS_OUTPUT.PUT_LINE('Name: ' || stu.name || ', Email: ' || stu.email);
+    END LOOP;
+END;
+/
+
+-- Function: Return total enrollments
+CREATE OR REPLACE FUNCTION total_enrollments RETURN NUMBER IS
+    total NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO total FROM Enrollment;
+    RETURN total;
+END;
+/
