@@ -1,0 +1,30 @@
+-- Drop tables if they exist
+DROP TABLE Enrollment CASCADE CONSTRAINTS;
+DROP TABLE Student CASCADE CONSTRAINTS;
+DROP TABLE Course CASCADE CONSTRAINTS;
+
+-- Student Table
+CREATE TABLE Student (
+    student_id NUMBER PRIMARY KEY,
+    name VARCHAR2(50) NOT NULL,
+    email VARCHAR2(50) UNIQUE,
+    dob DATE
+);
+
+-- Course Table
+CREATE TABLE Course (
+    course_id NUMBER PRIMARY KEY,
+    course_name VARCHAR2(50) NOT NULL,
+    credits NUMBER CHECK (credits > 0)
+);
+
+-- Enrollment Table
+CREATE TABLE Enrollment (
+    enroll_id NUMBER PRIMARY KEY,
+    student_id NUMBER,
+    course_id NUMBER,
+    enroll_date DATE,
+    grade CHAR(2),
+    CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES Student(student_id),
+    CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES Course(course_id)
+);
